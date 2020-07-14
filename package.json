@@ -1,0 +1,24 @@
+{
+  "name": "bakeryshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farahnajjar99/BakeryShop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Farahnajjar99/BakeryShop/issues"
+  },
+  "homepage": "https://github.com/Farahnajjar99/BakeryShop#readme",
+  "dependencies": {
+    "@types/mongoose": "^5.7.31",
+    "mongoose": "^5.9.23",
+    "ts-mongoose": "0.0.21"
+  }
+}
