@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,8 @@
   },
   "homepage": "https://github.com/Farahnajjar99/BakeryShop#readme",
   "dependencies": {
-    "@types/mongoose": "^5.7.31",
-    "mongoose": "^5.9.23",
-    "ts-mongoose": "0.0.21"
-  }
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23"
+  },
+  "devDependencies": {}
 }
