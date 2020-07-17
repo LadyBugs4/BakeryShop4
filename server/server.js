@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+var populateData = require("./models/dba.js")
+
 // const user=require("./models/user")
 
 const app = express();
@@ -26,7 +28,35 @@ mongoose.connection.on("connected", () =>
 
 //populateData.saveSt();
 
-var port = 3000;
+
+//orieb
+
+//routs path
+const users = require("./routs/user");
+
+app.use("",users);
+
+
+
+
+
+
+mongoose.connection.on('connected', () => 
+console.log("MongoDB successfully connected"))
+// middleware
+app.use(
+bodyParser.urlencoded({
+  extended: false
+})
+);
+
+
+
+
+
+
+
+var port = 3001;
 
 app.listen(port, function () {
   console.log(" is listening on port " + port);

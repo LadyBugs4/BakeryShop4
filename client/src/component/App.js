@@ -4,6 +4,9 @@ import Nav from "./nav";
 import login from "./login";
 import Signup from "./signup";
 import Body from "./home";
+import MediaControlCard from "./happy";
+import ProductCategories from "./home";
+
 
 // import Contact from "./contactus";
 
@@ -17,18 +20,26 @@ import Footer from "./footer";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
+class App extends Component{
+
+test7(){
+console.log("test")
+}
   render() {
     return (
       <Router>
         <div>
-          <ButtonAppBar />
+
+       <ButtonAppBar />
+          <Route path="/" exact component={ProductCategories} />
 
           <Route path="/login" component={login} />
           <Route path="/signup" component={Signup} />
 
+
           {/* <Route path="/contactus" component={Contact} /> */}
-       
+          <Route path="/happy" component={MediaControlCard} />
+
          
           <Footer />
           {/* <Route path="/" exact component={Body} />

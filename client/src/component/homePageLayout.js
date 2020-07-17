@@ -41,11 +41,12 @@ const styles = (theme) => ({
     bottom: 0,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    zIndex: -2,
+    zIndex: -1,
   },
   arrowDown: {
     position: 'absolute',
     bottom: theme.spacing(4),
+   
   },
 });
 
@@ -64,6 +65,7 @@ function HomeLayout(props) {
           src="https://raw.githubusercontent.com/mui-org/material-ui/master/docs/public/static/themes/onepirate/productHeroArrowDown.png"
           height="16"
           width="12"
+          backgroundColor="rgba(0, 0, 0, 0.95)"
           alt="arrow down"
         />
       </Container>

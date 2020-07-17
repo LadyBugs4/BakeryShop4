@@ -28,6 +28,7 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {},
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -68,7 +69,7 @@ export default function SignIn() {
       password: password,
     };
     axios
-      .post("http://localhost:6060/login", user)
+      .post("http://localhost:3001/login", user)
       .then((res) => {
         if (res.data === true) {
           document.getElementById("result").innerText = "Login Successed! ";
