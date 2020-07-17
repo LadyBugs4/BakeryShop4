@@ -75,7 +75,7 @@ export default function SignUp() {
       password: password,
     };
     axios
-      .post("http://localhost:6060/signup", user)
+      .post("http://localhost:3000/signup", user)
       .then((res) => {
         document.getElementById("accoutCreated").innerText =
           "Account created Successfully! ";
