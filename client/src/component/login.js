@@ -13,7 +13,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,9 +25,7 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
-  root: {},
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -47,15 +44,12 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
 export default function SignIn() {
   const classes = useStyles();
-
   const [values, setValues] = React.useState({
     Email: "",
     password: "",
   });
-
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -63,31 +57,23 @@ export default function SignIn() {
     e.preventDefault();
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-
     const user = {
       email: email,
       password: password,
     };
+    console.log(user)
     axios
-      .post("http://localhost:3001/login", user)
+      .post("http://localhost:7000/login", user)
       .then((res) => {
-        if (res.data === true) {
-          document.getElementById("result").innerText = "Login Successed! ";
-          // alert("Login Successed! ");
-        } else if (res.data === false) {
-          document.getElementById("result").innerText =
-            "Login Failed! Wrong password ";
-          //alert("Login Failed! Wrong password")
-        } else if (res.data === "Email not found") {
-          document.getElementById("result").innerText = "Email not found";
-          //alert("Email not found")
-        }
-
-        console.log(res.data);
-      })
-      .catch(() => console.log("Error Occured!"));
+      console.log(res.data);
+    if(res.data === "User log in"){
+       window.location = "/home"
+        alert(' logined')
+      }
+  }).catch((error) => {
+      console.log(error)
+  });
   };
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -105,17 +91,17 @@ export default function SignIn() {
           noValidate
         >
           <TextField
-            value={values.Email}
-            onChange={handleChange("Email")}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
+           value={values.email}
+                onChange={handleChange("email")}
+                variant="outlined"
+                name="email" 
+                label="email"
+                type="email"
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                autoComplete="email"
           />
           <TextField
             value={values.password}

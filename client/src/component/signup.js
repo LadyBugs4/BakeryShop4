@@ -13,7 +13,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,7 +25,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -46,48 +44,44 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
 export default function SignUp() {
   const classes = useStyles();
-
   const [values, setValues] = React.useState({
     firstName: "",
     lastName: "",
-    Email: "",
+    email: "",
     password: "",
   });
-
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-
+    console.log(password)
+     console.log(lastName)
+      console.log(firstName)
+       console.log(email)
     const user = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       password: password,
     };
+    console.log(user)
     axios
-      .post("http://localhost:3001/signup", user)
-      .then((res) => {
-        document.getElementById("accoutCreated").innerText =
-          "Account created Successfully! ";
-        // window.location = '/login'
-      })
-      .catch(
-        () =>
-          (document.getElementById("accoutCreated").innerText =
-            "The email is already exists! ")
-      );
-
-    //window.location = "/login"
+       .post("http://localhost:7000/signup", user)
+ .then((res) => {
+    console.log(res.data);
+    if(res.data === "User authenticated"){
+        alert('User authenticated')
+      }
+  }).catch((error) => {
+      console.log(error)
+  });
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -130,14 +124,16 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                value={values.Email}
-                onChange={handleChange("Email")}
+                value={values.email}
+                onChange={handleChange("email")}
+                variant="outlined"
+                name="email" 
+                label="email"
+                type="email"
                 variant="outlined"
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
-                name="email"
                 autoComplete="email"
               />
             </Grid>
@@ -145,7 +141,6 @@ export default function SignUp() {
               <TextField
                 value={values.password}
                 onChange={handleChange("password")}
-                variant="outlined"
                 required
                 fullWidth
                 name="password"
@@ -162,7 +157,6 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-
           <Button
             type="submit"
             fullWidth
