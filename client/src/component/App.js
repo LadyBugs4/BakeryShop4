@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import "./style.css";
 import Nav from "./nav";
 import login from "./login";
-import Signup from "./signup";
+import SignUp from "./signup";
 import Body from "./home";
 
 // import Contact from "./contactus";
@@ -25,7 +25,7 @@ class App extends Component {
           <ButtonAppBar />
 
           <Route path="/login" component={login} />
-          <Route path="/signup" component={Signup} />
+          <Route path="/signup" component={SignUp} />
 
           {/* <Route path="/contactus" component={Contact} /> */}
        

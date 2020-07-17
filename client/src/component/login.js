@@ -68,23 +68,44 @@ export default function SignIn() {
       password: password,
     };
     axios
-      .post("http://localhost:6060/login", user)
+      .post("http://localhost:7000/login", user)
       .then((res) => {
-        if (res.data === true) {
-          document.getElementById("result").innerText = "Login Successed! ";
-          // alert("Login Successed! ");
-        } else if (res.data === false) {
-          document.getElementById("result").innerText =
-            "Login Failed! Wrong password ";
-          //alert("Login Failed! Wrong password")
-        } else if (res.data === "Email not found") {
-          document.getElementById("result").innerText = "Email not found";
-          //alert("Email not found")
-        }
+      console.log(res.data);
+    if(res.data === "User log in"){
 
-        console.log(res.data);
-      })
-      .catch(() => console.log("Error Occured!"));
+      // return  <Redirect  to="/see" />
+      //console.log(this.props);
+      //this.props.history.push('/SignUpform')}else{
+        alert(' TRY AGAIN!!!')
+      }
+
+
+  }).catch((error) => {
+
+      console.log(error)
+  });
+
+      // .then(function (response) {
+      //     console.log(response);
+      //      window.location = "/home"
+      //   })
+        
+  //     .then((res) => {
+  //       if (res.data === true) {
+  //         document.getElementById("result").innerText = "Login Successed! ";
+  //         // alert("Login Successed! ");
+  //       } else if (res.data === false) {
+  //         document.getElementById("result").innerText =
+  //           "Login Failed! Wrong password ";
+  //         //alert("Login Failed! Wrong password")
+  //       } else if (res.data === "Email not found") {
+  //         document.getElementById("result").innerText = "Email not found";
+  //         //alert("Email not found")
+  //       }
+
+  //       console.log(res.data);
+  //     })
+      //.catch(() => console.log("Error Occured!"));
   };
 
   return (
