@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    background:"rgba(0, 0, 0, 0.94)",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background:"rgba(0, 0, 0, 0.79)",
+    color:"white"
   },
 }));
 export default function SignUp() {
@@ -88,7 +90,7 @@ export default function SignUp() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          {/* <LockOutlinedIcon /> */}
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
@@ -152,7 +154,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                control={<Checkbox value="allowExtraEmails"  />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
             </Grid>
@@ -161,7 +163,7 @@ export default function SignUp() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="primary" 
             className={classes.submit}
           >
             Sign Up

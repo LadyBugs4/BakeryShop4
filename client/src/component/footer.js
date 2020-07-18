@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    minHeight: "80vh",
+    
   },
   main: {
     marginTop: theme.spacing(8),
@@ -32,9 +33,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 2),
     marginTop: "auto",
     backgroundColor:
-      theme.palette.type === "main"
-        ? theme.palette.grey[150]
-        : theme.palette.grey[600],
+    "rgba(0, 0, 0, 0.94)",
+    color:"white",
+    height:"130px"
+    
+  
   },
 }));
 
@@ -51,7 +54,7 @@ export default function StickyFooter() {
       ></Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1"> Moody Web Site</Typography>
+          <Typography variant="body1"> Bakery Web Site</Typography>
           <Copyright />
         </Container>
       </footer>

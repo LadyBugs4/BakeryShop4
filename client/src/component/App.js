@@ -6,6 +6,9 @@ import Signup from "./signup";
 import Body from "./home";
 import MediaControlCard from "./happy";
 import ProductCategories from "./home";
+import Product from "./product";
+
+import ProductHowItWorks from "./product";
 
 
 // import Contact from "./contactus";
@@ -22,9 +25,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component{
 
-test7(){
-console.log("test")
-}
   render() {
     return (
       <Router>
@@ -39,6 +39,7 @@ console.log("test")
 
           {/* <Route path="/contactus" component={Contact} /> */}
           <Route path="/happy" component={MediaControlCard} />
+          <Route path="/ProductHowItWorks" component={ProductHowItWorks} />
 
          
           <Footer />

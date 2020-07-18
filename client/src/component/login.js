@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    // backgroundColor: theme.palette.secondary.main,
+    background: "rgba(0, 0, 0, 0.94)",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -42,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background: "rgba(0, 0, 0, 0.79)",
+    color: "white",
   },
 }));
 export default function SignIn() {
@@ -61,18 +64,20 @@ export default function SignIn() {
       email: email,
       password: password,
     };
-    console.log(user)
+    console.log(user);
     axios
       .post("http://localhost:7000/login", user)
       .then((res) => {
-      console.log(res.data);
-    if(res.data === "User log in"){
-       window.location = "/home"
-        alert(' logined')
-      }
-  }).catch((error) => {
-      console.log(error)
-  });
+        console.log(res.data);
+        if (res.data === "User log in") {
+          window.location = "/";
+          alert(" logined");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Your Email or password are not correct, Try again!");
+      });
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -91,17 +96,19 @@ export default function SignIn() {
           noValidate
         >
           <TextField
-           value={values.email}
-                onChange={handleChange("email")}
-                variant="outlined"
-                name="email" 
-                label="email"
-                type="email"
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                autoComplete="email"
+            value={values.email}
+            onChange={handleChange("email")}
+            variant="outlined"
+            name="email"
+            label="email"
+            type="email"
+            variant="outlined"
+            required
+            fullWidth
+            id="email"
+            autoComplete="email"
+            validators={["required", "isEmail"]}
+            errorMessages={["this field is required", "email is not valid"]}
           />
           <TextField
             value={values.password}
@@ -115,6 +122,8 @@ export default function SignIn() {
             id="password"
             type="password"
             autoComplete="current-password"
+            validators={["required"]}
+            errorMessages={["this field is required"]}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -124,7 +133,6 @@ export default function SignIn() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
             Sign In

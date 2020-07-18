@@ -89,7 +89,7 @@ function HomePageHeader(props) {
 
       </Box>
   </Typography>
-      <Button   classes={{
+      {/* <Button   classes={{
         root: classes.root, // class name, e.g. `root-x`
         // class name, e.g. `disabled-x`
       }} 
@@ -102,7 +102,7 @@ function HomePageHeader(props) {
         
       >
         Register
-      </Button>
+      </Button> */}
     </HomeLayout>
   );
 }
