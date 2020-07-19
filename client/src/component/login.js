@@ -73,10 +73,13 @@ export default function SignIn() {
           window.location = "/";
           alert(" logined");
         }
+        else{
+          alert("Your Email or password are not correct, Try again!");
+        }
       })
       .catch((error) => {
         console.log(error);
-        alert("Your Email or password are not correct, Try again!");
+        
       });
   };
   return (
