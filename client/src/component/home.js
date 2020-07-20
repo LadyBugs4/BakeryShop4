@@ -15,6 +15,7 @@ import ProductHowItWorks from "./product";
 
 
 
+
 const styles = makeStyles((theme) => ({
   oven:{
     fontWeight:"fontWeightBold",
@@ -156,23 +157,23 @@ function ProductCategories(props) {
   {
       url:
         'https://i.pinimg.com/236x/ff/62/db/ff62dbdb21216831dbfc956ec7a176b6.jpg',
-      title: 'coockies',
+      title: 'cookies',
       width: '32%',
-      purl:'./login'
+      purl:'./cookies'
     },
     {
       url:
         'https://i.pinimg.com/564x/ad/75/c1/ad75c191defdcf8a12009e8bb787d02e.jpg',
       title: 'dessert',
       width: '36%',
-      purl:'./login'
+      purl:'./dessert'
     },
     {
       url:
         'https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-05/european-style-hearth-bread.jpg?itok=-8aOTGBk',
       title: 'Bread',
       width: '32%',
-      purl:'./login'
+      purl:'./bread'
     },
    
     //{
