@@ -11,16 +11,11 @@ import ProductHowItWorks from "./product";
 // import FacebookIcon from '@material-ui/icons/Facebook';
 // import TwitterIcon from '@material-ui/icons/Twitter';
 // import Sidebar from './Sidebar';
-
-
-
-
 const styles = makeStyles((theme) => ({
   oven:{
     fontWeight:"fontWeightBold",
      fontSize:"48px",
      color:"rgba(0, 0, 0, 0.95)"
-
   },
   root: {//root
     marginTop: theme.spacing(7),
@@ -30,7 +25,6 @@ const styles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     display: 'flex',
     flexWrap: 'wrap',
-    
   },
   imageWrapper: {//
     position: 'relative',
@@ -55,13 +49,10 @@ const styles = makeStyles((theme) => ({
       border: '4px solid currentColor',
     },
   },
-
   media:{
     width:"100px"
   },
-
   imageButton: {//buttons 
-
     position: 'absolute',
     left: 0,
     right: 0,
@@ -83,7 +74,6 @@ const styles = makeStyles((theme) => ({
   },
   imageBackdrop: {
     position: 'absolute',
-   
     right: 0,
     top: 0,
     bottom: 0,
@@ -111,10 +101,8 @@ const styles = makeStyles((theme) => ({
     top: 600,
     bottom: 0,
     backgroundSize: 'cover',
-  
   },
 }));
-
 // const sidebar = {
 //   title: 'About',
 //   description:
@@ -138,43 +126,35 @@ const styles = makeStyles((theme) => ({
 //     { name: 'Facebook', icon: FacebookIcon },
 //   ],
 // };
-
 function ProductCategories(props) {
  const classes = styles();;
- 
-
  const waterss =[{
-  
- 
   url:"https://static.wixstatic.com/media/bb1bd6_a5d63398c13c415c84741e752e8fd02f~mv2.gif",
   title:"water",
   width:"200%"
-
  }];
-
   const images = [
   {
       url:
         'https://i.pinimg.com/236x/ff/62/db/ff62dbdb21216831dbfc956ec7a176b6.jpg',
-      title: 'coockies',
+      title: 'cookies',
       width: '32%',
-      purl:'./login'
+      purl:'./cookies'
     },
     {
       url:
         'https://i.pinimg.com/564x/ad/75/c1/ad75c191defdcf8a12009e8bb787d02e.jpg',
       title: 'dessert',
       width: '36%',
-      purl:'./login'
+      purl:'./dessert'
     },
     {
       url:
         'https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-05/european-style-hearth-bread.jpg?itok=-8aOTGBk',
       title: 'Bread',
       width: '32%',
-      purl:'./login'
+      purl:'./bread'
     },
-   
     //{
     //   url:
     //     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT9hjogjbiJI020wZbnYABhPk-jk4wsEv-sRQ&usqp=CAU',
@@ -190,14 +170,10 @@ function ProductCategories(props) {
     //   purl :'/jazz'
     // },
   ];
-
-
   return (
     <div>
     <HomePageHeader/>
-
     <Container className={classes.root} component="section">
-      
       <Typography   className={classes.oven}  variant="h3" marked="center" align="center" component="h2">
       Fresh From the Oven to Your Doorstep     
        </Typography>
@@ -219,7 +195,6 @@ function ProductCategories(props) {
                 backgroundImage: `url(${image.url})`,
               }}
             />
-         
             <div className={classes.imageBackdrop} />
             <div className={classes.imageButton}>
               <Typography
@@ -238,34 +213,21 @@ function ProductCategories(props) {
               social={sidebar.social}
             /> */}
             </div>
-           
-          
           </ButtonBase>
         ))}
-       
-     
-      
- 
-       
       </div>
-
       {/* <div
         className={classes.water}
         style={{
           backgroundImage: `url(${waterss[0].url})`,
         }}
         /> */}
-     
     </Container>
     <ProductHowItWorks />
-
     </div>
-     
   );
 }
-
 ProductCategories.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 export default withStyles(styles)(ProductCategories);
