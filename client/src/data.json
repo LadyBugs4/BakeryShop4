@@ -1,0 +1,237 @@
+[
+    [
+      {
+        "number": 1,
+        "name": "GoodDay bread",
+        "price": "2.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/b5/bb/71/b5bb71080ab92a6180da13e20c6b2c14.jpg",
+        "description": "This is our unique sourdough bread! it will take you to another world."
+      },
+  
+      {
+        "number": 2,
+        "name": "Brown toast",
+        "price": "2.5 jd",
+        "imageUrl": "https://previews.123rf.com/images/peteers/peteers1506/peteers150600861/41573629-whole-wheat-bread-with-seeds.jpg",
+        "description": "Gluten-Free Sourdough Pumpernickel toast. "
+      },
+  
+      {
+        "number": 3,
+        "name": "White toast",
+        "price": "2 jd",
+        "imageUrl": "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2019.2F01.2F31.2Fdfbdd8f1-5044-4227-a692-cf80e073b32f.2Ejpeg/748x372/quality/80/crop-from/center/pain-de-mie-au-four.jpeg",
+        "description": "A Soft toast dough."
+      },
+  
+      {
+        "number": 4,
+        "name": "White bread",
+        "price": "1 jd",
+        "imageUrl": "https://i.pinimg.com/564x/cd/79/45/cd7945aa722e08e96bf6bc2a31963c6a.jpg",
+        "description": "Fresh Whole Wheat Pita Bread"
+      },
+      {
+        "number": 5,
+        "name": "Bran bread",
+        "price": "1.5 jd",
+        "imageUrl": "https://dietitian.sa/blog/contents/newsm/542_0.jpg",
+        "description": "Gluten-Free fresh bread, Suitable for diabetics"
+      },
+      {
+        "number": 6,
+        "name": "Shrak bread",
+        "price": "1.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/4f/c7/21/4fc721827aeb02b893e6b971b5fdbc1c.jpg",
+        "description": "Fresh bread, made on saj."
+      },
+  
+      {
+        "number": 7,
+        "name": "Frensh bread",
+        "price": "3 jd",
+        "imageUrl": "https://i.pinimg.com/564x/46/06/d0/4606d0da8e0c39d054c1857d4d774446.jpg",
+        "description": "Fresh frensh bread"
+      },
+  
+      {
+        "number": 8,
+        "name": "Tortilla bread",
+        "price": "3.5 jd",
+        "imageUrl": " https://www.jessicagavin.com/wp-content/uploads/2020/04/flour-tortillas-12-1200.jpg",
+        "description": "Fresh flat bread"
+      },
+  
+      {
+        "number": 9,
+        "name": "Hamam bread",
+        "price": "1.5 jd",
+        "imageUrl": " https://i.pinimg.com/564x/a2/3a/e4/a23ae4d4348cdaa3db3335cd5d62a666.jpg",
+        "description": "Fresh soft dough bread"
+      },
+  
+      {
+        "number": 10,
+        "name": "Burger bread",
+        "price": "2 jd",
+        "imageUrl": "https://www.abelandcole.co.uk/media/5921_15882_z.jpg",
+        "description": "Fresh soft dough bread"
+      }
+    ],
+    [
+  
+      {
+        "number": 11,
+        "name": "Petits four",
+        "price": "6 jd",
+        "imageUrl": "https://i.pinimg.com/564x/35/f5/b5/35f5b539fa7e96af3ed043253a852c66.jpg",
+        "description": "very small sweet coockies, you have to try them! "
+      },
+      {
+        "number": 12,
+        "name": "Puff Berry",
+        "price": "1 jd",
+        "imageUrl": "https://i.pinimg.com/originals/33/65/24/3365245c3f31171abf204b7e3d06bc42.gif",
+        "description": "A Soft dough stuffed with raspberry"
+      },
+      {
+        "number": 13,
+        "name": "Sugar dough donut",
+        "price": "1 jd",
+        "imageUrl": "https://i.pinimg.com/564x/91/16/a3/9116a3bb886323b5f95100ff72b9ed29.jpg",
+        "description": "A Soft dough shaped like a ring, with sugardough"
+      },
+  
+      {
+        "number": 14,
+        "name": "Pineapple Cake",
+        "price": "2.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/44/27/30/4427305af346e21b8e76fba7d88e0230.jpg",
+        "description": "A Soft cake with Pineapple flavour"
+      },
+      {
+        "number": 15,
+        "name": "Orange Cake",
+        "price": "2 jd",
+        "imageUrl": "https://i.pinimg.com/564x/14/98/96/149896f95b4e5c842e7a38495086e2c4.jpg",
+        "description": "A fresh Soft cake with Orange flavour"
+      },
+      {
+        "number": 16,
+        "name": "Apple Cake",
+        "price": "2 jd",
+        "imageUrl": "https://i.pinimg.com/564x/a8/02/48/a80248690ca70599c41901103eaf269c.jpg",
+        "description": "The Best Apple Cake Ever! represnted with walnuts"
+      },
+      {
+        "number": 17,
+        "name": "Cinamon Cake",
+        "price": "5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/2c/01/f0/2c01f0dc549fbe9532aa992c2f75dd87.jpg",
+        "description": "This moist loaf cake swirled with cinnamon-sugar mixture and frosted with a sweet white glaze"
+      },
+      {
+        "number": 18,
+        "name": "Sugardough coockies",
+        "price": "5 jd",
+        "imageUrl": "https://static.wixstatic.com/media/9c608a_a5eaf3dd3106463e8d564bc702101b72.jpg/v1/fill/w_396,h_400,al_c,q_80,usm_0.66_1.00_0.01/9c608a_a5eaf3dd3106463e8d564bc702101b72.webp",
+        "description": "Brown Chocolate Chunk Cookies, elevated you to another level to give this cookie a 'fancy with only a little more effort' vibe"
+      },
+      {
+        "number": 19,
+        "name": "Cinamon Cake",
+        "price": "5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/2c/01/f0/2c01f0dc549fbe9532aa992c2f75dd87.jpg",
+        "description": "This moist loaf cake swirled with cinnamon-sugar mixture and frosted with a sweet white glaze"
+      },
+      {
+        "number": 20,
+        "name": "GoodDay cake",
+        "price": "5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/53/26/96/532696fb60853b5064040503a40e8472.jpg ",
+        "description": "This is our secret cake, if you want to know the secret, try it!"
+      }
+    ],
+  
+    [
+      {
+        "number": 21,
+        "name": "Hard Pretzels",
+        "price": "2 jd",
+        "imageUrl": "https://www.jocooks.com/wp-content/uploads/2011/10/grissini-1.jpg",
+        "description": "Crispy and scrumptious  pretzels.It would be better with your breakfast  "
+      },
+      {
+        "number": 22,
+        "name": "Rye crispbread",
+        "price": "3 jd",
+        "imageUrl": "https://i.pinimg.com/564x/bf/fd/a3/bffda337c1d35a5a76ad94707ad9648e.jpg",
+        "description": "If you are fancy of traditional food you should start your day with these big crispbread "
+      },
+      {
+        "number": 22,
+        "name": "Qarshla Ka'ek",
+        "price": "2 jd",
+        "imageUrl": "https://64.media.tumblr.com/fb81d0963777743ea9730f486ed32235/tumblr_mu8xbi1uHp1qcrvt0o1_1280.jpg",
+        "description": "Five ingredients transform into long crisp sticks. The hand-held snacks make your day easy "
+      },
+      {
+        "number": 23,
+        "name": " Olive Cheese Straws",
+        "price": "3 jd",
+        "imageUrl": "https://i.pinimg.com/564x/ae/53/2a/ae532a309dd775e10c6e908815e23c0e.jpg",
+        "description": "If you are ready to move on to a new flavor , you’re in the right place. "
+      },
+      {
+        "number": 24,
+        "name": "Rosemary Sea Salt Crackers",
+        "price": "2.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/e4/f3/84/e4f38463a9b3e60c9c43bd09e8c76ace.jpg ",
+        "description": " This is the perfect addition to your cheese plate, or just to have on hand for snacking"
+      },
+      {
+        "number": 25,
+        "name": "Cranberry Orange Bagels",
+        "price": "2.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/32/64/df/3264df04ac40945eb12985544a537b55.jpg",
+        "description": " Switch up the taste, you will not regret it "
+      },
+      {
+        "number": 26,
+        "name": "Jerusalem/Palestinian Sesame Bagels",
+        "price": "2.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/cb/ef/0e/cbef0e1b10907f362ac748564f9a8d8f.jpg",
+        "description": "Jerusalem Bagels or Ka'ek bel semsem as they are called in the Middle eastern countries are kind of bread that is crispy from outside yet soft and chewy from inside."
+      },
+      {
+        "number": 27,
+        "name": "Magic Bagels",
+        "price": "1.5 jd",
+        "imageUrl": "https://i.pinimg.com/564x/87/35/8a/87358ab85403291bc181238b7dc48537.jpg",
+        "description": " we called it Magic Bagel because it stays fresh all the days."
+      },
+      {
+        "number": 28,
+        "name": "Blueberry Bagels ",
+        "price": " 2jd",
+        "imageUrl": "https://i.pinimg.com/564x/51/27/4c/51274c77e827d82114f723bf136db351.jpg",
+        "description": " Goodday  bakery  launched a new  unique flavor  that will taker You to Paris atmosphere "
+      },
+      {
+        "number": 29,
+        "name": "herbs Bagels ",
+        "price": " 3 jd",
+        "imageUrl": "https://i.pinimg.com/564x/83/87/f7/8387f739fc5fc20e2d9021ec0f02bd03.jpg",
+        "description": "How things have changed !!!Today, bagels grace our breakfast tables to taste the real herbs bagels "
+      },
+      {
+        "number": 30,
+        "name": "goodday Bagels ",
+        "price": " 4 jd",
+        "imageUrl": "https://i.pinimg.com/564x/ca/0e/b6/ca0eb6051611ffbf2a775f3079c1f6a2.jpg",
+        "description": " Our special recipe , specially made for you.You won't believe it unless you try it   "
+      }
+    ]
+    ]
+  
+  

@@ -4,11 +4,14 @@ import Nav from "./nav";
 import login from "./login";
 import Signup from "./signup";
 import Body from "./home";
-import MediaControlCard from "./happy";
 import ProductCategories from "./home";
 import Product from "./product";
 
 import ProductHowItWorks from "./product";
+import RecipeReviewCard from "./bread";
+import Recipe from "./dessert";
+import RecipeCookies from "./cookies";
+
 
 
 // import Contact from "./contactus";
@@ -23,25 +26,24 @@ import Footer from "./footer";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component{
-
+class App extends Component {
   render() {
     return (
       <Router>
         <div>
-
-       <ButtonAppBar />
+          <ButtonAppBar />
           <Route path="/" exact component={ProductCategories} />
 
           <Route path="/login" component={login} />
           <Route path="/signup" component={Signup} />
 
-
           {/* <Route path="/contactus" component={Contact} /> */}
-          <Route path="/happy" component={MediaControlCard} />
+
           <Route path="/ProductHowItWorks" component={ProductHowItWorks} />
 
-         
+          <Route path="/bread" component={RecipeReviewCard} />
+          <Route path="/dessert" component={Recipe} />
+          <Route path="/cookies" component={RecipeCookies} />
           <Footer />
           {/* <Route path="/" exact component={Body} />
           <Route path="/" exact component={Body} /> */}
