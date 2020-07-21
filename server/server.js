@@ -31,7 +31,16 @@ mongoose.connection.on("connected", () =>
 
 // middleware
 
+const {Role} = require("./models/db");
+
+
+
+
 //routs path
+
+
+
+
 const users = require("./routs/user");
 
 connect

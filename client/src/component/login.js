@@ -14,6 +14,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -71,13 +72,14 @@ export default function SignIn() {
       .then((res) => {
         console.log(res.data);
         // if (res.data === "User log in") {
-          if (res.status === 200 ) {
-          window.location = "/";
-          alert(" logined");
+          if (res.status === 200 &&email==="ladybages@gmail.com"&& password==="ladybages@gmail.com") {
+          window.location = "/admin";
+          alert(" logined as admin,fighting");
         }
-        // else{
-        //   alert("Your Email or password are not correct, Try again!");
-        // }
+        else{
+           window.location = "/";
+          alert("welcome to our website ");
+        }
       })
       .catch((error) => {
          alert("Your Email or password are not correct, Try again!");
