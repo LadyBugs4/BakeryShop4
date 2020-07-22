@@ -166,7 +166,7 @@ export default function SignUp() {
     //console.log(password)
      console.log(NameOfCategory)
       console.log(Price)
-       //console.log(email)
+      console.log(image)
     const items = {
       NameOfCategory: NameOfCategory,
       NameOfItems:NameOfItems,
@@ -197,7 +197,7 @@ export default function SignUp() {
           {/* <LockOutlinedIcon /> */}
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+         Add Item
         </Typography>
         <form className={classes.form} onSubmit={onSubmit} noValidate>
           <Grid container spacing={2}>
@@ -295,7 +295,8 @@ export default function SignUp() {
             color="primary" 
             className={classes.submit}
           >
-            Sign Up
+
+          Add Item
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
