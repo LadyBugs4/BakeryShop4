@@ -4,6 +4,7 @@ import Nav from "./nav";
 import login from "./login";
 import SignUp from "./signup";
 import Body from "./home";
+import NativeSelects from "./admin";
 
 // import Contact from "./contactus";
 
@@ -26,7 +27,7 @@ class App extends Component {
 
           <Route path="/login" component={login} />
           <Route path="/signup" component={SignUp} />
-
+          <Route path="/admin" component={NativeSelects} />
           {/* <Route path="/contactus" component={Contact} /> */}
        
          

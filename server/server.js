@@ -31,12 +31,22 @@ mongoose.connection.on("connected", () =>
 
 // middleware
 
+
+
+
+
 //routs path
+
+
+
+
 const users = require("./routs/user");
+const items = require("./routs/admin");
 
 connect
   .then((db) => {
     app.use("/", users);
+     app.use("/", items);
 
     app.use(
       bodyParser.urlencoded({
