@@ -31,7 +31,6 @@ mongoose.connection.on("connected", () =>
 
 // middleware
 
-const {Role} = require("./models/db");
 
 
 
@@ -42,10 +41,12 @@ const {Role} = require("./models/db");
 
 
 const users = require("./routs/user");
+const items = require("./routs/admin");
 
 connect
   .then((db) => {
     app.use("/", users);
+     app.use("/", items);
 
     app.use(
       bodyParser.urlencoded({
