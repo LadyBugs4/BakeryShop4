@@ -156,24 +156,24 @@ function ProductCategories(props) {
   const images = [
   {
       url:
-        'https://i.pinimg.com/236x/ff/62/db/ff62dbdb21216831dbfc956ec7a176b6.jpg',
+        'https://static.wixstatic.com/media/9c608a_69c3c69bd662433d9a47b602d53daaa2.jpg/v1/fill/w_396,h_400,al_c,q_80,usm_0.66_1.00_0.01/9c608a_69c3c69bd662433d9a47b602d53daaa2.webp',
       title: 'cookies',
       width: '32%',
-      purl:'./cookies'
+   
     },
     {
       url:
-        'https://i.pinimg.com/564x/ad/75/c1/ad75c191defdcf8a12009e8bb787d02e.jpg',
+        'https://i.pinimg.com/564x/96/f9/93/96f9931366aad25abfe37bcadc3120c6.jpg',
       title: 'dessert',
       width: '36%',
-      purl:'./dessert'
+  
     },
     {
       url:
         'https://www.kingarthurflour.com/sites/default/files/styles/featured_image/public/2020-05/european-style-hearth-bread.jpg?itok=-8aOTGBk',
       title: 'Bread',
       width: '32%',
-      purl:'./bread'
+    
     },
    
     //{

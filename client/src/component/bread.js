@@ -14,7 +14,12 @@ import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+
+
+// import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Data from "../data.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,11 +43,10 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
-  price:
-  {
-    fontWeight:"fontWeightBold",
-     fontSize:"72px"
-  }
+  price: {
+    fontWeight: "fontWeightBold",
+    fontSize: "72px",
+  },
 }));
 
 export default function RecipeReviewCard() {
@@ -53,65 +57,148 @@ export default function RecipeReviewCard() {
     setExpanded(!expanded);
   };
 
-  return (
-    <div>
-      {Data[0].map((ele) => (
-        <Card className={classes.root} key={ele._number}>
-          <CardHeader
-            avatar={
-              <Avatar
-                aria-label="recipe"
-                src="https://dynamic.brandcrowd.com/preview/logodraft/1ed57d70-5be9-4d98-9c5d-df3d94923cd3/image/large.png"
-                className={classes.avatar}
-              ></Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={ele.name}
-          />
-          <CardMedia className={classes.media} image={ele.imageUrl} />
-          <CardContent>
-            <Typography
-              // variant="body2"
-              color="rgba(0, 0, 0, 0.95)"
-              component="p"
-              fontWeight="fontWeightBold"
-              fontSize="50px"
-            >
-              {ele.description}
-             <Typography color="rgba(0, 0, 0, 0.95)"
-             fontSize="50%"
-              >
-              {ele.price}
-              </Typography>
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
-            </IconButton>
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
-              })}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent></CardContent>
-          </Collapse>
-        </Card>
-      ))}
-    </div>
-  );
+  // export default function RecipeReviewCard() {
+  //   const classes = useStyles();
+  //   const [expanded, setExpanded] = React.useState({
+  //     data:[]
+  //   });
+
+  //   const handleExpandClick = () => {
+  //     setExpanded(!expanded);
+  //   };
+
+  //
+  //   const handleChange = (event) => {
+  //     const name = event.target.name;
+  //     setState({
+  //       ...state,
+  //       [name]: event.target.value,
+  //     });
+  //   };
+  const [data, setData] = useState([]);
+
+
+
+  useEffect(() => {
+    //axios.get("http://localhost:7000/getItem")
+    fetch("http://localhost:7000/getItem")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
+
+
+  console.log(data)
+   // axios.get("http://localhost:7000/getItem")
+    // fetch("http://localhost:7000/getItem")
+    //   .then((response) => response.json())
+    //   .then((data) => setData(data));
+  
+
+
+  
+  //  console.log(x())
+  const x=function(){
+//var key=[]
+var result=[]
+  for(var i in data){
+    var key = i;
+    
+    var val = data[i];
+    for(var j in val){
+      if(val[j]===" bread"){
+      // console.log(val[j])
+      // console.log(data[i])
+      result.push(data[i])
+      }
+        var sub_key = j;
+        var sub_val = val[j];
+       // key.push(val[j])
+    //     console.log(sub_key);
+    //  console.log(sub_val)
+     
+       
+    }
 }
+return result
+  }
+
+//console.log(x(+"done"))
+
+var arr=x()
+console.log(arr)
+
+
+  return (
+     <div>
+       {arr.map((ele) => (
+             <Card className={classes.root} key={ele._number}>
+             <CardHeader
+               avatar={
+                 <Avatar
+                   aria-label="recipe"
+                   src="https://dynamic.brandcrowd.com/preview/logodraft/1ed57d70-5be9-4d98-9c5d-df3d94923cd3/image/large.png"
+                   className={classes.avatar}
+                 ></Avatar>
+               }
+               action={
+                 <IconButton aria-label="settings">
+                   <MoreVertIcon />
+                 </IconButton>
+               }
+               title={ele.NameOfItems}
+             />
+             <CardMedia className={classes.media} image={ele.image} />
+             <CardContent>
+               <Typography
+                 // variant="body2"
+                 color="rgba(0, 0, 0, 0.95)"
+                 component="p"
+                 fontWeight="fontWeightBold"
+                 fontSize="50px"
+               >
+                 {ele.description}
+                 <Typography color="rgba(0, 0, 0, 0.95)" fontSize="50%">
+                   {ele.Price+"jd"}
+                 </Typography>
+               </Typography>
+             </CardContent>
+             <CardActions disableSpacing>
+               <IconButton aria-label="add to favorites">
+                 <FavoriteIcon />
+               </IconButton>
+               <IconButton aria-label="share">
+                 <ShareIcon />
+               </IconButton>
+               <IconButton
+                 className={clsx(classes.expand, {
+                   [classes.expandOpen]: expanded,
+                 })}
+                 onClick={handleExpandClick}
+                 aria-expanded={expanded}
+                 aria-label="show more"
+               >
+                 <ExpandMoreIcon />
+               </IconButton>
+             </CardActions>
+             <Collapse in={expanded} timeout="auto" unmountOnExit>
+               <CardContent></CardContent>
+             </Collapse>
+           </Card>
+         ))}
+       </div>
+
+);
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+

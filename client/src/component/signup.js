@@ -82,6 +82,7 @@ export default function SignUp() {
         alert('User authenticated')
       }
   }).catch((error) => {
+    alert ("try again ")
       console.log(error)
   });
   };

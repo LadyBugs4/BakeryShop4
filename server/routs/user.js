@@ -1,39 +1,35 @@
+
 const express = require("express");
-const request = require("request");
 const router = express.Router();
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-var session = require("express-session");
-const FileStore = require("session-file-store")(session);
-var cookieParser = require("cookie-parser");
+const bcrypt = require("bcryptjs");
+const { User } = require("../models/User-Model");
 const app = express();
-var cors=require("cors")
-app.use(cors())
-var saltRounds=10
-const items = require("../models/dba");
-const User2=items.dba2
-console.log(User2)
- router.post("/signup",function(req, res){
-var newUser = new User2({
+var cors = require("cors");
+app.use(cors());
+var saltRounds = 10;
+const items = require("../models/User-Model");
+const jsonwebtoken = require("jsonwebtoken");
+router.post("/signup", function (req, res) {
+  var newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
   });
-   User2.findOne({ email: newUser.email })
-    .then( profile => {
+  User.findOne({ email: newUser.email })
+    .then((profile) => {
       if (!profile) {
-        bcrypt.hash(newUser.password, saltRounds, function (err, hash)  {
+        bcrypt.hash(newUser.password, saltRounds, function (err, hash) {
           if (err) {
             console.log("Error is", err.message);
           } else {
             newUser.password = hash;
-             newUser
+            newUser
               .save()
               .then(() => {
-                res.send('User authenticated');
+                res.send("User authenticated");
               })
-              .catch(err => {
+              .catch((err) => {
                 console.log("Error is ", err.message);
               });
           }
@@ -42,44 +38,28 @@ var newUser = new User2({
         res.send("User already exists...");
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.log("Error is", err.message);
     });
-})
+});
 //login route
-router.post("/login", function (req, res) {
-  var newUser = new User2({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password
-  });
-   User2.findOne({ email: newUser.email })
-    .then(profile => {
-      if (!profile) {
-        res.send("User not exist");
-      } else {
-        bcrypt.compare(
-          newUser.password,
-          profile.password,
-          function (err, result) {
-            if (err) {
-              console.log("Error is", err.message);
-            } else if (result == true){
-              var userInfo = {
-                user: profile,
-                result: result,
-              };
-              res.status(200).send("User log in");
-            } else {
-              res.send("User Unauthorized Access");
-            }
-          }
-        );
-      }
-    })
-    .catch(err => {
-      console.log("Error is ", err.message);
-    });
+router.post("/login", async function (req, res) {
+  try {
+    const { email, password } = req.body;
+    const usertofind = await User.findOne({ email });
+    if (!usertofind) {
+      return res.status(404).json({ msg: "no user with this cerdntials" });
+    }
+    // compare password
+    if (!bcrypt.compareSync(password, usertofind.password)) {
+      return res.status(401).json({ msg: "wrong cerdntials" });
+    }
+    // if user is valid
+    const token = jsonwebtoken.sign({ id: usertofind.id }, "orieb");
+    res.cookie("user-token", token, { httpOnly: true }); 
+    return res.status(200).json({ jwt: token }); //
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;
