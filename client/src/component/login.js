@@ -65,21 +65,42 @@ export default function SignIn() {
       password: password,
     };
     console.log(user);
+    // axios
+    //   .post("http://localhost:7000/login", user)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     if (res.data === "User log in") {
+    //       window.location = "/";
+    //       alert(" logined");
+    //     }
+    //     else{
+    //       alert("Your Email or password are not correct, Try again!");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+
+    //   });
     axios
       .post("http://localhost:7000/login", user)
       .then((res) => {
         console.log(res.data);
-        if (res.data === "User log in") {
-          window.location = "/";
-          alert(" logined");
-        }
-        else{
-          alert("Your Email or password are not correct, Try again!");
+        // if (res.data === "User log in") {
+        if (
+          res.status === 200 &&
+          email === "ladybages@gmail.com" &&
+          password === "ladybages@gmail.com"
+        ) {
+          window.location = "/admin";
+          alert(" logined as admin,fighting");
+        } else {
+          window.location = "/categories";
+          alert("welcome to our website ");
         }
       })
       .catch((error) => {
+        alert("Your Email or password are not correct, Try again!");
         console.log(error);
-        
       });
   };
   return (

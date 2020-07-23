@@ -4,17 +4,18 @@ import Nav from "./nav";
 import login from "./login";
 import Signup from "./signup";
 import Body from "./home";
-import ProductCategories from "./home";
+import Categories from "./categories";
 import Product from "./product";
 
 import ProductHowItWorks from "./product";
 import RecipeReviewCard from "./bread";
 import Recipe from "./dessert";
 import RecipeCookies from "./cookies";
+import ProductCategories from "./home"
 
-
-
-// import Contact from "./contactus";
+//admin :
+import Item  from "./admin"
+// import  Contact from "./contactus";
 
 import SimpleBottomNavigation from "./footer";
 import ButtonAppBar from "./nav";
@@ -36,6 +37,8 @@ class App extends Component {
 
           <Route path="/login" component={login} />
           <Route path="/signup" component={Signup} />
+          <Route path ="/admin" component={Item} />
+          <Route path ="/categories" component={Categories} />
 
           {/* <Route path="/contactus" component={Contact} /> */}
 
