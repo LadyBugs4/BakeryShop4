@@ -17,10 +17,33 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import MailIcon from '@material-ui/icons/Mail';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 // import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Data from "../data.json";
+
+
+var likeCounts =3
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,30 +75,14 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [count, setCount] = React.useState(1);
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  // export default function RecipeReviewCard() {
-  //   const classes = useStyles();
-  //   const [expanded, setExpanded] = React.useState({
-  //     data:[]
-  //   });
-
-  //   const handleExpandClick = () => {
-  //     setExpanded(!expanded);
-  //   };
-
-  //
-  //   const handleChange = (event) => {
-  //     const name = event.target.name;
-  //     setState({
-  //       ...state,
-  //       [name]: event.target.value,
-  //     });
-  //   };
-  const [data, setData] = useState([]);
+const [data, setData] = useState([]);
 
 
 
@@ -127,7 +134,14 @@ return result
 var arr=x()
 console.log(arr)
 
+//addtoCart
+const addToCart=() =>{
+  console.log("clicked ...")
+}
 
+function like (){console.log("hi")
+likeCounts++
+}
   return (
      <div>
        {arr.map((ele) => (
@@ -163,23 +177,44 @@ console.log(arr)
                </Typography>
              </CardContent>
              <CardActions disableSpacing>
-               <IconButton aria-label="add to favorites">
-                 <FavoriteIcon />
-               </IconButton>
-               <IconButton aria-label="share">
-                 <ShareIcon />
-               </IconButton>
-               <IconButton
-                 className={clsx(classes.expand, {
-                   [classes.expandOpen]: expanded,
-                 })}
-                 onClick={handleExpandClick}
-                 aria-expanded={expanded}
-                 aria-label="show more"
-               >
-                 <ExpandMoreIcon />
-               </IconButton>
-             </CardActions>
+               <IconButton aria-label="add to favorites"  onClick={like }>
+               <FavoriteBorder />                 
+                 {likeCounts}
+                 </IconButton>
+                <IconButton
+              
+          >
+            <div>
+             
+        <IconButton aria-label="cart">
+        <StyledBadge badgeContent={count} color="secondary">
+          <ShoppingCartIcon />
+        </StyledBadge>
+      </IconButton>
+        <ButtonGroup>
+          <Button
+            aria-label="reduce"
+            onClick={() => {
+              setCount(Math.max(count - 1, 0));
+            }}
+          >
+            <RemoveIcon fontSize="small" />
+          </Button>
+          <Button
+            aria-label="increase"
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            <AddIcon fontSize="small" />
+          </Button>
+        </ButtonGroup>
+     </div>
+            </IconButton>
+          
+          </CardActions>
+               {/* <Button onClick={addToCart}>Add to card</Button> */}
+
              <Collapse in={expanded} timeout="auto" unmountOnExit>
                <CardContent></CardContent>
              </Collapse>

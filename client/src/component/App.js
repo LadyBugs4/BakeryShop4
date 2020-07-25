@@ -7,6 +7,7 @@ import Body from "./home";
 import Categories from "./categories";
 import Product from "./product";
 
+
 import ProductHowItWorks from "./product";
 import RecipeReviewCard from "./bread";
 import Recipe from "./dessert";
@@ -40,6 +41,7 @@ class App extends Component {
           <Route path ="/admin" component={Item} />
           <Route path ="/categories" component={Categories} />
 
+         
           {/* <Route path="/contactus" component={Contact} /> */}
 
           <Route path="/ProductHowItWorks" component={ProductHowItWorks} />
@@ -48,6 +50,7 @@ class App extends Component {
           <Route path="/dessert" component={Recipe} />
           <Route path="/cookies" component={RecipeCookies} />
           <Footer />
+          
           {/* <Route path="/" exact component={Body} />
           <Route path="/" exact component={Body} /> */}
         </div>
