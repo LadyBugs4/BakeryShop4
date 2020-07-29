@@ -13,6 +13,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.8.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -23,8 +25,10 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-location": "^2.0.8",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "stripe": "^8.79.0"
   },
   "browserslist": {
     "production": [
