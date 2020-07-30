@@ -19,6 +19,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import CheckoutForm from "./checkOutForm";
 
+import AboutOur from "./about";
+
+import AboutLay from "./aboutLayOut";
+
 class App extends Component {
   render() {
     return (
@@ -34,6 +38,10 @@ class App extends Component {
             <Route exact path="/categories/:category" exact component={Category} />
             <Route path="/cart" exact component={Cart} />
             
+            <Route path="/about" exact component={AboutOur} />
+            
+            <Route path="/aboutLayOut" exact component={AboutLay} />
+
             <Route path="/CheckOutForm" exact component={CheckoutForm} />
 
             <Footer />

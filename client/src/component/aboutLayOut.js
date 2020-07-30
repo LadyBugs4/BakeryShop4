@@ -29,7 +29,7 @@ const styles = (theme) => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor:theme.palette.common.white,
+    backgroundColor: theme.palette.common.black,
     opacity: 0.5,
     zIndex: -1,
   },
@@ -50,7 +50,7 @@ const styles = (theme) => ({
   },
 });
 
-function HomeLayout(props) {
+function AboutLay(props) {
   const { backgroundClassName, children, classes } = props;
 
   return (
@@ -65,7 +65,7 @@ function HomeLayout(props) {
           src="https://raw.githubusercontent.com/mui-org/material-ui/master/docs/public/static/themes/onepirate/productHeroArrowDown.png"
           height="16"
           width="12"
-          // backgroundColor="rgba(0, 0, 0, 0.95)"
+          backgroundColor="rgba(0, 0, 0, 0.95)"
           alt="arrow down"
         />
       </Container>
@@ -74,10 +74,10 @@ function HomeLayout(props) {
   );
 }
 
-HomeLayout.propTypes = {
+AboutLay.propTypes = {
   backgroundClassName: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(HomeLayout);
+export default withStyles(styles)(AboutLay);
