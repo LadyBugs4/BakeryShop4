@@ -28,7 +28,7 @@
     "react-location": "^2.0.8",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
-    "stripe": "^8.79.0"
+    "stripe": "^8.80.0"
   },
   "browserslist": {
     "production": [

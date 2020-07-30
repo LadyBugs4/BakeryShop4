@@ -17,6 +17,8 @@ import Footer from './footer'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import CheckoutForm from "./checkOutForm";
+
 class App extends Component {
   render() {
     return (
@@ -31,6 +33,9 @@ class App extends Component {
             <Route exact path="/categories" exact component={Categories} />
             <Route exact path="/categories/:category" exact component={Category} />
             <Route path="/cart" exact component={Cart} />
+            
+            <Route path="/CheckOutForm" exact component={CheckoutForm} />
+
             <Footer />
           </div>
         </Router>
