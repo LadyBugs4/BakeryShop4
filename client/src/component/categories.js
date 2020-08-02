@@ -221,8 +221,8 @@ function Categories(props) {
 }
 //console.log(image.title)
 
-Categories.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
+// Categories.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// }
 
 export default withStyles(styles)(Categories)

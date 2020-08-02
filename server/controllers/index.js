@@ -1,3 +1,5 @@
+//Require al files in a folder 
+
 var normalizedPath = require('path').join(__dirname)
 
 require('fs')

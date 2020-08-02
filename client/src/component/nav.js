@@ -91,7 +91,7 @@ export default function ButtonAppBar() {
           )}
 
           <Button component={RouterLink} to="/cart" color="inherit">
-            Cart {`(${totalItems})`}🛍
+            Cart {`(${totalItems})`}
           </Button>
         </Toolbar>
       </AppBar>

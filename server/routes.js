@@ -14,7 +14,7 @@ router.post('/login', controllers.auth.login)
 
 // Protected Routes
 router.get('/profile', middleware.auth, controllers.users.currentUser)
-router.get('/products', middleware.auth, controllers.products.all)
+//router.get('/products', middleware.auth, controllers.products.all)
 router.post('/products', middleware.auth, controllers.products.add)
 router.post('/categories', middleware.auth, controllers.products.categories)
 

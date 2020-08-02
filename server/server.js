@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path') //native module, no need to install
 require('dotenv').config()
-const logger = require('morgan')
+// const logger = require('morgan')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI, mongooseOptions).then(
   err => console.log(err),
 )
 
-app.use(logger('dev')) // For logging out errors to the console
+// app.use(logger('dev')) // For logging out errors to the console
 app.use(bodyParser.json()) // for parsing application/json
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded

@@ -11,13 +11,10 @@ import Typography from '@material-ui/core/Typography'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Button from '@material-ui/core/Button'
 import Badge from '@material-ui/core/Badge'
-
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { red } from '@material-ui/core/colors'
-
 import { validURL } from '../helpers'
 import ShopContext from '../context/shop-context'
-
 const StyledBadge = withStyles(theme => ({
   badge: {
     right: -3,
@@ -26,7 +23,6 @@ const StyledBadge = withStyles(theme => ({
     padding: '0 4px',
   },
 }))(Badge)
-
 const useStyles = makeStyles(theme => ({
   body: {
     display: 'grid',
@@ -55,23 +51,12 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '56.25%', // 16:9
   },
 }))
-
 export default function Category() {
   const classes = useStyles()
-
   let { category } = useParams() // Object
-
+  const token = localStorage.getItem('loggedInToken')
   const context = React.useContext(ShopContext)
-  console.log('context', context)
-  React.useEffect(() => {
-    async function fetchData() {
-      // You can await here
-      const token = localStorage.getItem('loggedInToken')
-      await context.fetchProducts(token, category)
-    }
-    fetchData()
-  }, [category])
-
+  const { products } = context.useDataApi(token, category)
   return (
     <section>
       <Container className={classes.header} component="header" maxWidth="md">
@@ -80,14 +65,12 @@ export default function Category() {
         </Typography>
       </Container>
       <Container className={classes.body}>
-        {context.products.length > 0 ? (
-          context.products.map((item, idx) => {
+        {products.length > 0 ? (
+          products.map((item, idx) => {
             const imagePlaceholder =
               'https://dynamic.brandcrowd.com/preview/logodraft/1ed57d70-5be9-4d98-9c5d-df3d94923cd3/image/large.png'
-
             // Check if Image is a valid URL
             const itemImage = validURL(item.image) ? item.image : imagePlaceholder
-
             return (
               <Card key={idx}>
                 <CardHeader
@@ -121,7 +104,7 @@ export default function Category() {
             )
           })
         ) : (
-          <p>No products were found ☹️</p>
+          <p>No products were found :white_frowning_face:</p>
         )}
       </Container>
     </section>
