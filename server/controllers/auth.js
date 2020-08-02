@@ -1,18 +1,7 @@
-const { validate } = require('indicative').validator
+// const { validate } = require('indicative').validator
 const { User } = require('../models')
 
 exports.register = async (req, res) => {
-  //Validate request data
-  const rules = {
-    firstName: 'required|string',
-    lastName: 'required|string',
-    email: 'required|email',
-    password: 'required|min:6|max:30',
-  }
-
-  validate(req.body, rules).catch(errors => {
-    return res.status(422).json(errors[0])
-  })
 
   try {
     //initialize mongoose Model
@@ -26,43 +15,20 @@ exports.register = async (req, res) => {
     await user.save() //save user record to database
 
     const token = user.getJWT()
-    const expiration = process.env.NODE_ENV === 'dev' ? 100 : 604800000
+    //const expiration = process.env.NODE_ENV === 'dev' ? 100 : 604800000
 
     return res
-      .cookie('loggedInToken', token, {
-        expires: new Date(Date.now() + expiration),
-        secure: false, // set to true if your using https
-        httpOnly: true,
-      })
       .status(201)
       .json({ data: { user, loggedInToken: token } })
   } catch (err) {
-    //return error if user unique field already exists
-    if (err.name === 'MongoError' && err.code === 11000) {
-      field = Object.keys(err.keyValue)[0]
-      const response = {
-        message: `${field} already exists!`,
-        field: field,
-      }
-      return res.status(422).json(response)
-    }
-    console.log('err', err)
-
+   
     return res.status(409).json({ message: 'error saving data' })
   }
 }
 
 exports.login = async (req, res) => {
-  const rules = {
-    email: 'required|email',
-    password: 'required|min:6|max:30',
-  }
 
-  validate(req.body, rules).catch(errors => {
-    return res.status(422).json(errors[0])
-  })
-
-  try {
+ try {
     const { email, password } = req.body
     const user = await User.findOne({ email })
 

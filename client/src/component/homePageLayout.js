@@ -29,7 +29,7 @@ const styles = (theme) => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: theme.palette.common.black,
+    backgroundColor:theme.palette.common.white,
     opacity: 0.5,
     zIndex: -1,
   },
@@ -65,7 +65,7 @@ function HomeLayout(props) {
           src="https://raw.githubusercontent.com/mui-org/material-ui/master/docs/public/static/themes/onepirate/productHeroArrowDown.png"
           height="16"
           width="12"
-          backgroundColor="rgba(0, 0, 0, 0.95)"
+          // backgroundColor="rgba(0, 0, 0, 0.95)"
           alt="arrow down"
         />
       </Container>

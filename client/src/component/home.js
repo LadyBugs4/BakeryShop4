@@ -8,6 +8,9 @@ import HomePageHeader from './homePageheader'
 import product from './product'
 import ProductHowItWorks from './product'
 import ShopContext from '../context/shop-context'
+import AboutOur from './about'
+import Button from "@material-ui/core/Button";
+
 // import GitHubIcon from '@material-ui/icons/GitHub';
 // import FacebookIcon from '@material-ui/icons/Facebook';
 // import TwitterIcon from '@material-ui/icons/Twitter';
@@ -115,10 +118,24 @@ const styles = makeStyles(theme => ({
     bottom: 0,
     backgroundSize: 'cover',
   },
+  button: {
+        marginTop: theme.spacing(6),
+        marginLeft: theme.spacing(86),
+        color:"white",
+        background:"rgba(0, 0, 0, 0.95)",
+        width:"150px",
+        height:"67px"
+      },
 }))
 
 function ProductCategories(props) {
   const classes = styles()
+
+   const order = () => {
+  
+   window.location = "/login";
+    //alert(value)
+ };
 
   const waterss = [
     {
@@ -214,8 +231,10 @@ function ProductCategories(props) {
             /> */}
               </div>
             </ButtonBase>
+
           ))}
         </div>
+
 
         {/* <div
         className={classes.water}
@@ -224,6 +243,22 @@ function ProductCategories(props) {
         }}
         /> */}
       </Container>
+
+      <Typography   className={classes.order}  variant="h3" marked="center" align="center" component="h2">     Baking From The Heart       </Typography>
+<Button
+        
+          size="large"
+          variant="contained"
+          className={classes.button}
+          component="a"
+          onClick={order}
+        >
+          Order Now
+        </Button>
+        <div>
+      <AboutOur/>
+      </div>
+      
       <ProductHowItWorks />
     </>
   )
