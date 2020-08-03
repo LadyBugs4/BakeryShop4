@@ -11,6 +11,8 @@ import ProductCategories from './home'
 
 import Item from './admin'
 
+import Wtem from './location'
+
 import ButtonAppBar from './nav'
 
 import Footer from './footer'
@@ -21,7 +23,6 @@ import CheckoutForm from "./checkOutForm";
 
 import AboutOur from "./about";
 
-import AboutLay from "./aboutLayOut";
 
 class App extends Component {
   render() {
@@ -40,9 +41,8 @@ class App extends Component {
             
             <Route path="/about" exact component={AboutOur} />
             
-            <Route path="/aboutLayOut" exact component={AboutLay} />
-
             <Route path="/CheckOutForm" exact component={CheckoutForm} />
+            <Route path="/location" exact component={Wtem} />
 
             <Footer />
           </div>

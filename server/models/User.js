@@ -29,6 +29,32 @@ let userSchema = Schema({
     required: true,
     minlength: 6,
   },
+  City:{
+         type: String,
+      //  required: true,
+     },
+       Area:{
+     type: String,
+      //  required: true,
+     },
+      RoadName:{
+       type: String,
+    //  required: true,
+       },
+      BuildingNumber:{
+       type: String||Number,
+        //  required: true,
+      },
+      Floor:{
+       type: String,
+      //  required: true,
+      },
+       DeliveryInstructions:{
+       type: String,
+        //  required: true,
+    }
+    
+
 })
 
 // hash passwords for new records before saving

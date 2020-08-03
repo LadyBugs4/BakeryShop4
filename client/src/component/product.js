@@ -15,12 +15,13 @@ const styles = (theme) =>  ({
   image: {
     height:'25%',
     width:"100%",
-    marginTop: theme.spacing(40),
+    marginTop: theme.spacing(27),
     marginBottom: theme.spacing(2),
-    border: 1,
+    border: 100,
     borderRadius:"borderRadius",
-    style: { width: '5rem', height: '5rem' },
-    borderColor: 'text.primary',
+    style: { width: '50rem', height: '50rem' },
+    borderColor: "rgba(0, 0, 0, 0.94)",
+    
 
   },
 //   bord: {
