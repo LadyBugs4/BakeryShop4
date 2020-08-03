@@ -85,12 +85,12 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import HomeLayout from "./homePageLayout";
+import  AboutLay from "./aboutLayOut";
 import Box from '@material-ui/core/Box';
 
 
 const backgroundImage =
-  "https://i.pinimg.com/564x/07/00/9f/07009fc3a2e0b6259acab3a3dc234589.jpg";
+  "https://static.wixstatic.com/media/9c608a_9efc5333c98a44c994dbb37cade9066f.jpg/v1/fill/w_606,h_800,al_c,q_85,usm_0.66_1.00_0.01/9c608a_9efc5333c98a44c994dbb37cade9066f.webp";
 
 const styles = (theme) => ({
   root:{
@@ -110,10 +110,13 @@ const styles = (theme) => ({
 
   background: {
     backgroundImage: `url(${backgroundImage})`,
-     backgroundColor: "#fafafa", // Average color of the background image.
+     backgroundColor: "#eceff1", // Average color of the background image.
     backgroundPosition: "center",
     width:"30%",
-    marginLeft: theme.spacing(132),
+    marginLeft: theme.spacing(110),
+    marginTop: theme.spacing(9),
+
+
     
 
    
@@ -129,6 +132,12 @@ fontWeight:"fontWeightBold",
    
 
   },
+  word:{
+    marginRight: theme.spacing(83),
+    marginTop: theme.spacing(3),
+
+
+  },
   h5: {
     marginBottom: theme.spacing(4),
     marginTop: theme.spacing(4),
@@ -140,13 +149,19 @@ fontWeight:"fontWeightBold",
   more: {
     marginTop: theme.spacing(2),
   },
+  bakee:{
+    marginRight: theme.spacing(104),
+    marginTop: theme.spacing(15),
+
+
+  }
 });
 
-function AboutOur(props) {
+function About(props) {
   const { classes } = props;
 
   return (
-    <HomeLayout backgroundClassName={classes.background}>
+    <AboutLay backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img  classes={{
         mg: classes.mg, // class name, e.g. `root-x`
@@ -161,7 +176,7 @@ function AboutOur(props) {
         root: classes.root, // class name, e.g. `root-x`
         // class name, e.g. `disabled-x`
       }} >
-       <Box fontWeight="fontWeightBold" fontSize="50px"  m={1}>
+       <Box fontWeight="fontWeightBold" fontSize="45px"  m={1} className={classes.bakee}>
 About Our Bakery
       </Box>
   </Typography>
@@ -175,14 +190,14 @@ About Our Bakery
         root: classes.root, // class name, e.g. `root-x`
         // class name, e.g. `disabled-x`
       }} >
-       <Box fontWeight="fontWeightBold" fontSize="26px"  m={1}>
+       <Box fontWeight="fontWeightBold" fontSize="20px"  m={1} className={classes.word}>
        Our bakery is the foundation of our food culture.  
        Starting with all natural ingredients, every morning our bakers begin production at 6 AM to mix, 
        knead, proof and bake our Signature Bread products.  By 10 AM our store is filled with aromatic breezes of 
        freshly baked breads and our products are ready for our customers to pick up for their daily grocery needs.
 
 
-All baked goods are Preservative Free and Made with 100% LOVE
+All baked goods are Preservative Free and Made with 100% LOVE.
       </Box>
   </Typography>
       {/* <Button   classes={{
@@ -199,15 +214,15 @@ All baked goods are Preservative Free and Made with 100% LOVE
       >
         Register
       </Button> */}
-    </HomeLayout>
+    </AboutLay>
   );
 }
 
-AboutOur.propTypes = {
+About.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AboutOur);
+export default withStyles(styles)(About);
 
 
   

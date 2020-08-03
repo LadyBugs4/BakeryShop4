@@ -11,10 +11,10 @@ const middleware = require('./middleware')
 
 router.post('/register', controllers.auth.register)
 router.post('/login', controllers.auth.login)
-
+//router.post('/location', controllers.auth.location)
 // Protected Routes
 router.get('/profile', middleware.auth, controllers.users.currentUser)
-//router.get('/products', middleware.auth, controllers.products.all)
+router.post('/location', middleware.auth, controllers.auth.location)
 router.post('/products', middleware.auth, controllers.products.add)
 router.post('/categories', middleware.auth, controllers.products.categories)
 

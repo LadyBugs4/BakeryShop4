@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:
     "rgba(0, 0, 0, 0.94)",
     color:"white",
-    height:"130px"
+    height:"230px"
     
   
   },
@@ -55,7 +55,7 @@ export default function StickyFooter() {
       <footer className={classes.footer}>
         <Container maxWidth="sm">
           <Typography variant="body1"> Bakery Web Site</Typography>
-          <Copyright />
+          {/* <Copyright /> */}
         </Container>
       </footer>
     </div>

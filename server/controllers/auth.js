@@ -1,5 +1,6 @@
 // const { validate } = require('indicative').validator
 const { User } = require('../models')
+const { location } = require('../models')
 
 exports.register = async (req, res) => {
 
@@ -48,3 +49,26 @@ exports.login = async (req, res) => {
     if (err) return res.status(401).json({ message: err.message })
   }
 }
+
+
+exports.location = async (req, res) => {
+  try {
+    //initialize mongoose Model
+    const loc =new User ({
+      City:req.body.City,
+      Area:req.body.Area,
+      RoadName:req.body.RoadName,
+      BuildingNumber:req.body.BuildingNumber,
+      Floor:req.body.Floor,
+      DeliveryInstructions:req.body.DeliveryInstructions
+     
+    });
+
+    await loc.findOneandUpdate(); //save product record to database
+
+    return res.status(201).json({ data: { loc } });
+  } catch (err) {
+    console.log("ooo")
+    return res.status(409).json({ message: "error saving data" });
+  }
+};

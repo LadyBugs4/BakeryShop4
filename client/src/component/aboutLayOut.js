@@ -29,7 +29,7 @@ const styles = (theme) => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.common.white,
     opacity: 0.5,
     zIndex: -1,
   },
