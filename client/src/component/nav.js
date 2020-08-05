@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import { createMuiTheme } from '@material-ui/core/styles'
 import ShopContext from '../context/shop-context'
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 const theme = createMuiTheme({
 
   palette: {
@@ -57,7 +57,7 @@ export default function ButtonAppBar() {
     if (localStorage.getItem('loggedInToken') !== null) {
       localStorage.removeItem('loggedInToken')
     }
-    localStorage.removeItem("item")
+    localStorage.removeItem("cart")
     history.push('/login')
   }
 
@@ -104,7 +104,7 @@ export default function ButtonAppBar() {
           )}
 
           <Button component={RouterLink} to="/cart" color="inherit">
-          Cart  {/* Cart {`(${totalItems})`} */}
+          My cart<ShoppingCartIcon/> {/* Cart {`(${totalItems})`} */}
           </Button>
         </Toolbar>
       </AppBar>

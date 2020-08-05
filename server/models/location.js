@@ -1,34 +1,29 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
-
-let locationSchema = Schema({
+const locationSchema = Schema({
   City:{
          type: String,
-      //  required: true,
+      required: true,
      },
        Area:{
      type: String,
-      //  required: true,
+      required: true,
      },
       RoadName:{
        type: String,
-    //  required: true,
+     required: true,
        },
       BuildingNumber:{
-       type: String||Number,
-        //  required: true,
+       type:Number ,
+       required: true,
       },
       Floor:{
        type: String,
-      //  required: true,
+      required: true,
       },
-       DeliveryInstructions:{
-       type: String,
-        //  required: true,
+      PhoneNumber:{
+       type: Number,
+        required: true,
     }
-    
-
 })
-
 module.exports = mongoose.model('Location', locationSchema)

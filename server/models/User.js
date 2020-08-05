@@ -37,7 +37,7 @@ let userSchema = Schema({
      type: String,
       //  required: true,
      },
-      RoadName:{
+     RoadName:{
        type: String,
     //  required: true,
        },
@@ -49,8 +49,8 @@ let userSchema = Schema({
        type: String,
       //  required: true,
       },
-       DeliveryInstructions:{
-       type: String,
+      PhoneNumber:{
+       type: String||Number,
         //  required: true,
     }
     
