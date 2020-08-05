@@ -22,7 +22,7 @@ const styles = (theme) => ({
     backgroundImage: `url(${backgroundImage})`,
     backgroundColor: "#fafafa", // Average color of the background image.
     backgroundPosition: "center",
-    opacity: 0.90,
+    opacity: 0.91,
   },
   button: {
     minWidth: 200,

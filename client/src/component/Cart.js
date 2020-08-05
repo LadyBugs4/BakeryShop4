@@ -14,17 +14,19 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography';
 import Button from "@material-ui/core/Button"
 import ShopContext from '../context/shop-context'
-const TAX_RATE = 0.08
+const TAX_RATE = 0.06
 const useStyles = makeStyles(theme => ({
-  table: {
-    minWidth: 650,
+  tabl: {
+    
+  borderBlockEndStyle:"groove",
+   borderColor:"#d50000",
+   borderWidth:3,
+   borderWidth:5
+
   },
-  title: {
-    flex: '1 1 100%',
-    padding: '1rem'
-  },
+
   container: {
-    marginTop: '3.3rem'
+    marginTop: '3.5rem'
   },
   button: {
     marginTop: theme.spacing(6),
@@ -34,6 +36,42 @@ const useStyles = makeStyles(theme => ({
     width:"150px",
     height:"67px"
   },
+  na:{
+    fontSize:22,
+    fontFamily:"Serif",
+    fontWeight: "bold",
+    color:"#d50000"
+  },
+  Qa:{
+   fontSize:21,
+   fontFamily:"Serif",
+   fontWeight: "bold",
+   color:"#d50000",
+   fontWeight: "bold",
+  },
+  m:{
+    
+    fontSize:17,
+    fontFamily:"Serif",
+    fontWeight: "bold",
+    
+   
+
+
+  },
+  tax:{
+    fontSize:17,
+   fontFamily:"Serif",
+   fontWeight: "bold",
+   color:"#d50000",
+   fontWeight: "bold",
+  },
+  ts:{
+    fontSize:15,
+    fontFamily:"Serif",
+    fontWeight: "bold",
+  }
+
 }));
 
 function ccyFormat(num) {
@@ -46,7 +84,7 @@ export default function SpanningTable() {
   const classes = useStyles()
   const order = () => {
   
-    window.location = "/checkOutForm";
+    window.location = "/location";
      //alert(value)
   };
   const context = React.useContext(ShopContext)
@@ -75,31 +113,29 @@ export default function SpanningTable() {
     <section>
       <Container className={classes.container}>
         <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="spanning table">
+          <Table className={classes.tabl} >
             <TableHead>
+              
+              
+                {/* <TableCell align="right">Action</TableCell> */}
+              
               <TableRow>
-                <TableCell align="center" colSpan={3}>
-                  Details
-                </TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="right">Action</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Desc</TableCell>
-                <TableCell align="right">Qty.</TableCell>
-                <TableCell align="right">Unit</TableCell>
-                <TableCell align="right">Sum</TableCell>
-                <TableCell align="right"></TableCell>
+                <TableCell className={classes.na}>Product</TableCell>
+                <TableCell className={classes.Qa} >Quantity</TableCell>
+                <TableCell  className={classes.Qa}>Price</TableCell>
+                {/* <TableCell align="right">Unit</TableCell> */}
+                <TableCell  className={classes.Qa} align="right">Sum</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {cartItems.length > 0 && cartItems.map((cartItem, idx) => (
                 <TableRow key={idx}>
-                  <TableCell>{cartItem.name}</TableCell>
-                  <TableCell align="right">{cartItem.quantity}</TableCell>
-                  <TableCell align="right">{cartItem.price}</TableCell>
-                  <TableCell align="right">{ccyFormat(cartItem.price * cartItem.quantity)}</TableCell>
-                  <TableCell align="right">
+               
+                  <TableCell className={classes.m}>{cartItem.name}</TableCell>
+                  <TableCell className={classes.m} >{cartItem.quantity}</TableCell>
+                  <TableCell className={classes.m}>{cartItem.price}jd</TableCell>
+                  <TableCell className={classes.m} align="right">{ccyFormat(cartItem.price * cartItem.quantity)}</TableCell>
+                  <TableCell >
                   <IconButton onClick={context.removeProductFromCart.bind(this, cartItem._id)}>
                     <DeleteIcon className={classes.icon} />
                   </IconButton>
@@ -110,17 +146,17 @@ export default function SpanningTable() {
               <>
                 <TableRow>
                   <TableCell rowSpan={3} />
-                  <TableCell colSpan={2}>Subtotal</TableCell>
-                  <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+                  <TableCell  className={classes.tax} colSpan={2}>Subtotal</TableCell>
+                  <TableCell className={classes.ts} >{ccyFormat(invoiceSubtotal)}</TableCell>
                 </TableRow>
                <TableRow>
-                  <TableCell>Tax</TableCell>
-                  <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-                  <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+                  <TableCell  className={classes.tax} >Tax</TableCell>
+                  <TableCell className={classes.ts} >{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+                  <TableCell className={classes.ts} >{ccyFormat(invoiceTaxes)}</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell colSpan={2}>Total</TableCell>
-                  <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+                  <TableCell  className={classes.tax} colSpan={2}>Total</TableCell>
+                  <TableCell className={classes.ts} >{ccyFormat(invoiceTotal)}</TableCell>
                 </TableRow>
               </>
               )}
@@ -144,8 +180,9 @@ export default function SpanningTable() {
         component="a"
         onClick={order}
       >
-Buy      </Button>
+Next     </Button>
     </div>
     </div>
   )
 }
+

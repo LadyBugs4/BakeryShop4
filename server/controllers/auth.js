@@ -1,6 +1,6 @@
 // const { validate } = require('indicative').validator
 const { User } = require('../models')
-const { location } = require('../models')
+const { token } = require('morgan')
 
 exports.register = async (req, res) => {
 
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
     await user.save() //save user record to database
 
     const token = user.getJWT()
-    //const expiration = process.env.NODE_ENV === 'dev' ? 100 : 604800000
+
 
     return res
       .status(201)
@@ -50,25 +50,3 @@ exports.login = async (req, res) => {
   }
 }
 
-
-exports.location = async (req, res) => {
-  try {
-    //initialize mongoose Model
-    const loc =new User ({
-      City:req.body.City,
-      Area:req.body.Area,
-      RoadName:req.body.RoadName,
-      BuildingNumber:req.body.BuildingNumber,
-      Floor:req.body.Floor,
-      DeliveryInstructions:req.body.DeliveryInstructions
-     
-    });
-
-    await loc.findOneandUpdate(); //save product record to database
-
-    return res.status(201).json({ data: { loc } });
-  } catch (err) {
-    console.log("ooo")
-    return res.status(409).json({ message: "error saving data" });
-  }
-};

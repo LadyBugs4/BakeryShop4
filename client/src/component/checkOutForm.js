@@ -1,13 +1,15 @@
-
-
 import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
-// import "../styles/card.css"
-// import "../styles/common.css"
-
+import TextField from '@material-ui/core/TextField';
+import { Grid } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+const done =()=> {
+  // if(billingDetails.name === ""){
+  //   alert (" not successfully")   }
+  alert (" Thank you For Using Our Website.Your payment has been done successfully")
+  }
 const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
@@ -27,7 +29,7 @@ const CARD_OPTIONS = {
     },
     invalid: {
       iconColor: "#FFC7EE",
-      color: "#FFC7EE",
+      color: "black",
     },
   },
 };
@@ -104,9 +106,7 @@ const CheckoutForm = () => {
   const [processing, setProcessing] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState(null);
   const [billingDetails, setBillingDetails] = useState({
-    email: "",
-    phone: "",
-    name: "",
+
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -138,11 +138,7 @@ const CheckoutForm = () => {
     setError(null);
     setProcessing(false);
     setPaymentMethod(null);
-    setBillingDetails({
-      email: "",
-      phone: "",
-      name: "",
-    });
+
   };
   return paymentMethod ? (
     <div className="Result">
@@ -150,51 +146,28 @@ const CheckoutForm = () => {
         Payment successful
       </div>
       <div className="ResultMessage">
-        Thanks for trying Stripe Elements. No money was charged, but we
-        generated a PaymentMethod: {paymentMethod.id}
+      Thank you for your order.
+      Your order number is #2001539. We have emailed your order confirmation, and will send you an update when your order has shipped.
+
+{paymentMethod.id}
       </div>
       <ResetButton onClick={reset} />
     </div>
   ) : (
     <form className="Form" onSubmit={handleSubmit}>
-      <fieldset className="FormGroup">
-        <Field
-          label="Name"
-          id="name"
-          type="text"
-          placeholder="your name"
-          required
-          autoComplete="name"
-          value={billingDetails.name}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, name: e.target.value });
-          }}
-        />
-        <Field
-          label="Email"
-          id="email"
-          type="email"
-          placeholder="your email"
-          required
-          autoComplete="email"
-          value={billingDetails.email}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, email: e.target.value });
-          }}
-        />
-        <Field
-          label="Phone"
-          id="phone"
-          type="tel"
-          placeholder="(941) 555-0123"
-          required
-          autoComplete="tel"
-          value={billingDetails.phone}
-          onChange={(e) => {
-            setBillingDetails({ ...billingDetails, phone: e.target.value });
-          }}
-        />
-      </fieldset>
+    <Grid  container
+    spacing={0}
+    direction="column"
+    alignItems="center"
+    justify="center"
+    style={{ minHeight: '50vh' }}>
+</Grid>
+ <Grid container
+    spacing={0}
+    direction="column"
+    alignItems="left"
+    justify="center"
+    style={{ minHeight: '3vh' }}>
       <fieldset className="FormGroup">
         <CardField
           onChange={(e) => {
@@ -203,10 +176,18 @@ const CheckoutForm = () => {
           }}
         />
       </fieldset>
+      </Grid>
+      <Grid container
+    spacing={0}
+    direction="column"
+    alignItems="center"
+    justify="center"
+    style={{ minHeight: '50vh' }}>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-      <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
-      </SubmitButton>
+      <Button processing={processing} error={error} disabled={!stripe}  variant="contained" size="small" color="primary" onClick = {done} >
+       Press to Pay
+      </Button>
+      </Grid>
     </form>
   );
 };
@@ -217,7 +198,7 @@ const ELEMENTS_OPTIONS = {
     },
   ],
 };
-// Make sure to call `loadStripe` outside of a component’s render to avoid
+// Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 const Gg = () => {

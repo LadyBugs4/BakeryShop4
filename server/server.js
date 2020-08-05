@@ -65,3 +65,5 @@ process.on('unhandledRejection', error => {
 app.listen(process.env.PORT, function() {
   console.log(`Server Stated on http://localhost:${process.env.PORT}`)
 })
+
+module.exports =app;
