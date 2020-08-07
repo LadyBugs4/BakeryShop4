@@ -31,7 +31,7 @@ const styles = makeStyles(theme => ({
     //categories
     marginTop: theme.spacing(8),
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap', 
   },
   imageWrapper: {
     //
@@ -142,7 +142,7 @@ function ProductCategories(props) {
       url: 'https://static.wixstatic.com/media/bb1bd6_a5d63398c13c415c84741e752e8fd02f~mv2.gif',
       title: 'water',
       width: '200%',
-    },
+    },                                                                                                                                                                                                                                                        
   ]
 
   const images = [

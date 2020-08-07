@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "heroku-postbulid":"cd client && npm install && npm run build"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -37,5 +36,8 @@
     "request": "^2.88.2",
     "session-file-store": "^1.4.0",
     "stripe": "^8.80.0"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

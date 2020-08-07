@@ -35,7 +35,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'client'))) // For serving static files
-app.use("*" , (req , res) => res.sendFile(path.join(__dirname, 'client', "./bulid")))
+///app.use("*" , (req , res) => res.sendFile(path.join(__dirname, 'client', "./bulid")))
 
 
 // if (process.env.NODE_ENV === "production") {
