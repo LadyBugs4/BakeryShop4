@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest/server/test",
     "start": "nodemon server/server.js"
   },
   "repository": {
@@ -37,12 +36,5 @@
     "request": "^2.88.2",
     "session-file-store": "^1.4.0",
     "stripe": "^8.80.0"
-  },
-  "jest":{
-    "testEnvironment":"node"
-  },
-  "devDependencies": {
-    "jest": "^26.2.2",
-    "supertest": "^4.0.2"
   }
 }
