@@ -48,6 +48,6 @@ exports.location = async (req, res) => {
   } 
   catch (err) {
    console.log(err)
-    return res.status(409).json({ message: "error saving data" });
+  return res.status(409).json({ message: "error saving data" });
   }
 };

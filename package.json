@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "heroku-postbulid":"cd client && npm install && npm run build"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.8.0",
-    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -37,5 +35,8 @@
     "request": "^2.88.2",
     "session-file-store": "^1.4.0",
     "stripe": "^8.80.0"
+  },
+  "engines": {
+    "node": "12.16.2"
   }
 }
