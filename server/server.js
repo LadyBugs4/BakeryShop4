@@ -19,10 +19,15 @@ const mongooseOptions = {
 }
 
 //connect to database
+const url="mongodb://Farahnajjar99:123@cluster0-shard-00-00-mbsyz.mongodb.net:27017,cluster0-shard-00-01-mbsyz.mongodb.net:27017,cluster0-shard-00-02-mbsyz.mongodb.net:27017/<dbname>?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose.connect(process.env.MONGODB_URI, mongooseOptions).then(
   () => console.log('Database Connection established!'),
   err => console.log(err),
 )
+// mongoose.connect(url, mongooseOptions).then(
+//   () => console.log('Database Connection established!'),
+//   err => console.log(err),
+// )
 
 // app.use(logger('dev')) // For logging out errors to the console
 app.use(bodyParser.json()) // for parsing application/json
