@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs')
 const JWT = require('jsonwebtoken')
 
-const jwtSecret = process.env.JWT_SECRET
+const jwtSecret ="01D15A490E649541EA99415C0A041527723EBF97F01FA27B5A796C31EE3C37D8"
 
 let userSchema = Schema({
   firstName: {
@@ -75,7 +75,7 @@ userSchema.methods.validPassword = function(inputedPassword) {
 //sign token for this user
 userSchema.methods.getJWT = function() {
   return JWT.sign({ userId: this._id }, jwtSecret, {
-    expiresIn: process.env.NODE_ENV === 'dev' ? '1d' : '7d',
+    expiresIn: '7d',
   })
 }
 

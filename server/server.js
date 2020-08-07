@@ -19,9 +19,8 @@ const mongooseOptions = {
 };
 
 //connect to database
-const url =
-  "mongodb://Farahnajjar99:123@cluster0-shard-00-00-mbsyz.mongodb.net:27017,cluster0-shard-00-01-mbsyz.mongodb.net:27017,cluster0-shard-00-02-mbsyz.mongodb.net:27017/<dbname>?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
-mongoose.connect(process.env.MONGODB_URI, mongooseOptions).then(
+const url ="mongodb+srv://Bakery:0000@cluster0.4wgkn.mongodb.net/Bakery?retryWrites=true&w=majority"
+mongoose.connect(url, mongooseOptions).then(
   () => console.log("Database Connection established!"),
   (err) => console.log(err)
 );
@@ -35,15 +34,9 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "client"))); // For serving static files
+app.use(express.static(path.join(__dirname, '..', "build"))); // For serving static files
 
-if (process.env.NODE_ENV === "production") {
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 
-const { resolve } = require("path");
 // This is a sample test API key. Sign in to see examples pre-filled with your key.
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 //use routes
@@ -67,14 +60,25 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
+app.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+})
+
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+})
+
+
 //handle unhandled error
 process.on("unhandledRejection", (error) => {
   console.error("Uncaught Error", pe(error));
   return;
 });
 
-app.listen(process.env.PORT, function () {
-  console.log(`Server Stated on http://localhost:${process.env.PORT}`);
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, function () {
+  console.log(`Server Stated on http://localhost:${PORT}`);
 });
 
 module.exports = app;

@@ -1,89 +1,87 @@
-import React from 'react'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import Snackbar from '@material-ui/core/Snackbar';
+import React from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
 
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
-import Checkbox from '@material-ui/core/Checkbox'
-import Link from '@material-ui/core/Link'
-import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
-  )
+  );
 }
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
-    minWidth: '100%',
+    minWidth: "100%",
   },
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
-    background: 'rgba(0, 0, 0, 0.94)',
+    background: "rgba(0, 0, 0, 0.94)",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    background: 'rgba(0, 0, 0, 0.79)',
-    color: 'white',
+    background: "rgba(0, 0, 0, 0.79)",
+    color: "white",
   },
-}))
+}));
 
 export default function Item() {
-  const classes = useStyles()
-  const history = useHistory()
+  const classes = useStyles();
+  const history = useHistory();
 
   const [values, setValues] = React.useState({
-    category: '',
-    name: '',
+    category: "",
+    name: "",
     price: 0,
-    description: '',
-    image: '',
-  })
+    description: "",
+    image: "",
+  });
 
+  const [isOpen, setIsOpen] = React.useState(false);
 
-  const [isOpen, setIsOpen ] = React.useState(false)
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
-
-  const onSubmit = async(e) => {
-    e.preventDefault()
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
     try {
-      const token = localStorage.getItem('loggedInToken')
-      const { category, name, price, description, image } = values
+      const token = localStorage.getItem("loggedInToken");
+      const { category, name, price, description, image } = values;
 
       const items = {
         category,
@@ -91,59 +89,57 @@ export default function Item() {
         price,
         description,
         image,
-      }
+      };
 
       const config = {
         headers: { Authorization: `Bearer ${token}` },
-      }
+      };
 
       const bodyParameters = {
         category,
-      }
+      };
 
-   const result = await axios
-      .post('http://localhost:7000/api/products', items,
-      config)
+      const result = await axios.post("/api/products", items, config);
 
-      if (result.status === 201 ) {
-        setIsOpen(true)
+      if (result.status === 201) {
+        setIsOpen(true);
         setValues(() => ({
-          category: '',
-          name: '',
+          category: "",
+          name: "",
           price: 0,
-          description: '',
-          image: '',
-        }))
+          description: "",
+          image: "",
+        }));
       }
-    } catch(error){
-        console.log(error)
-      }
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const isInvalid =
-  values.name === "" ||
-  values.category  === "" ||
-  values.price === "" ||
-  values.description === "" ||
-  values.image === ""
+    values.name === "" ||
+    values.category === "" ||
+    values.price === "" ||
+    values.description === "" ||
+    values.image === "";
 
   React.useEffect(() => {
     // there is no token, redirect to login page
-    if (localStorage.getItem('loggedInToken') === null) {
-      history.push('/login')
+    if (localStorage.getItem("loggedInToken") === null) {
+      history.push("/login");
     }
-  }, [])
+  }, []);
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={isOpen}
         onClose={() => {
-          setIsOpen(false)
+          setIsOpen(false);
         }}
-        key={'top' + 'center'}
+        key={"top" + "center"}
         autoHideDuration={6000}
       >
         {/* <Alert onClose={() => {
@@ -166,7 +162,7 @@ export default function Item() {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={values.category}
-                  onChange={handleChange('category')}
+                  onChange={handleChange("category")}
                 >
                   <MenuItem value="bread">Bread</MenuItem>
                   <MenuItem value="cookies">Cookies</MenuItem>
@@ -179,7 +175,7 @@ export default function Item() {
             <Grid item xs={12}>
               <TextField
                 value={values.name}
-                onChange={handleChange('name')}
+                onChange={handleChange("name")}
                 autoComplete="fname"
                 name="name"
                 variant="outlined"
@@ -195,7 +191,7 @@ export default function Item() {
             <Grid item xs={12}>
               <TextField
                 value={values.Price}
-                onChange={handleChange('price')}
+                onChange={handleChange("price")}
                 autoComplete="fname"
                 name="price"
                 variant="outlined"
@@ -212,7 +208,7 @@ export default function Item() {
             <Grid item xs={12}>
               <TextField
                 value={values.description}
-                onChange={handleChange('description')}
+                onChange={handleChange("description")}
                 autoComplete="fname"
                 name="description"
                 variant="outlined"
@@ -228,7 +224,7 @@ export default function Item() {
             <Grid item xs={12}>
               <TextField
                 value={values.image}
-                onChange={handleChange('image')}
+                onChange={handleChange("image")}
                 autoComplete="fname"
                 name="image"
                 variant="outlined"
@@ -267,5 +263,5 @@ export default function Item() {
         <Copyright />
       </Box>
     </Container>
-  )
+  );
 }
