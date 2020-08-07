@@ -37,6 +37,23 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'client'))) // For serving static files
 app.use("*" , (req , res) => res.sendFile(path.join(__dirname, 'client', "./bulid")))
 
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+//   app.get("*", (req, res) => {
+//       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
+
+
+
+
+
+
+
+
+
+
 const { resolve } = require("path");
 // This is a sample test API key. Sign in to see examples pre-filled with your key.
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
