@@ -1,91 +1,91 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import axios from 'axios'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import Link from '@material-ui/core/Link'
-import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
+import React from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
-  )
+  );
 }
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
-    background: 'rgba(0, 0, 0, 0.94)',
+    background: "rgba(0, 0, 0, 0.94)",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    background: 'rgba(0, 0, 0, 0.79)',
-    color: 'white',
+    background: "rgba(0, 0, 0, 0.79)",
+    color: "white",
   },
-}))
+}));
 export default function SignUp() {
-  const classes = useStyles()
+  const classes = useStyles();
 
-  const history = useHistory()
+  const history = useHistory();
   const [values, setValues] = React.useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  })
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
-  const onSubmit = e => {
-    e.preventDefault()
-    const { firstName, lastName, email, password } = values
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const { firstName, lastName, email, password } = values;
     const user = {
       firstName,
       lastName,
       email,
       password,
-    }
+    };
 
     axios
-      .post('http://localhost:7000/api/register', user)
-      .then(result => {
-        console.log(result)
+      .post("/api/register", user)
+      .then((result) => {
+        console.log(result);
         if (result.status === 201) {
           // localStorage.setItem('loggedInToken', result.data.data.loggedInToken)
-          history.push('/login')
+          history.push("/login");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         // alert('try again ')
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -99,7 +99,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 value={values.firstName}
-                onChange={handleChange('firstName')}
+                onChange={handleChange("firstName")}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -113,7 +113,7 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 value={values.lastName}
-                onChange={handleChange('lastName')}
+                onChange={handleChange("lastName")}
                 variant="outlined"
                 required
                 fullWidth
@@ -126,7 +126,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 value={values.email}
-                onChange={handleChange('email')}
+                onChange={handleChange("email")}
                 variant="outlined"
                 name="email"
                 label="email"
@@ -141,7 +141,7 @@ export default function SignUp() {
             <Grid item xs={12}>
               <TextField
                 value={values.password}
-                onChange={handleChange('password')}
+                onChange={handleChange("password")}
                 required
                 fullWidth
                 name="password"
@@ -183,5 +183,5 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
-  )
+  );
 }
