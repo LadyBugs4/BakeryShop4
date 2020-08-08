@@ -1,6 +1,6 @@
 ###About our Project 
 GoodDay Bakeryshop 
-An application used to serve Bakery products via credit card or cash  based on user preference, built with React, context API, JavaScript, and material UI.
+A website used to serve Bakery products via credit card or cash  based on user preference, built with React, context API, JavaScript, and material UI.
 
 
 
