@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -99,7 +101,7 @@ export default function Item() {
         category,
       };
 
-      const result = await axios.post("http://localhost:7000/api/products", items, config);
+      const result = await axios.post("/api/products", items, config);
 
       if (result.status === 201) {
         setIsOpen(true);

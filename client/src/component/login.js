@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -75,7 +76,7 @@ export default function SignIn() {
         headers: { Authorization: `Bearer ${token}` },
       };
       // login and get user information
-      const userInfoResult = await axios.get("http://localhost:7000/api/profile", config);
+      const userInfoResult = await axios.get("/api/profile", config);
       if (userInfoResult.status === 200) {
         setUserInfo(userInfoResult.data);
       }
@@ -93,7 +94,7 @@ export default function SignIn() {
       password,
     };
     try {
-      const result = await axios.post("http://localhost:7000/api/login", user);
+      const result = await axios.post("/api/login", user);
 
       if (result.status === 200) {
         setIsError("");

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -73,7 +74,7 @@ export default function SignUp() {
     };
 
     axios
-      .post("http://localhost:7000/api/register", user)
+      .post("/api/register", user)
       .then((result) => {
         console.log(result);
         if (result.status === 201) {
