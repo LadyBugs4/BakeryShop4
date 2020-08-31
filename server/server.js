@@ -19,15 +19,10 @@ const mongooseOptions = {
 }
 
 //connect to database
-const url="mongodb://Farahnajjar99:123@cluster0-shard-00-00-mbsyz.mongodb.net:27017,cluster0-shard-00-01-mbsyz.mongodb.net:27017,cluster0-shard-00-02-mbsyz.mongodb.net:27017/<dbname>?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose.connect(process.env.MONGODB_URI, mongooseOptions).then(
   () => console.log('Database Connection established!'),
   err => console.log(err),
 )
-// mongoose.connect(url, mongooseOptions).then(
-//   () => console.log('Database Connection established!'),
-//   err => console.log(err),
-// )
 
 // app.use(logger('dev')) // For logging out errors to the console
 app.use(bodyParser.json()) // for parsing application/json
@@ -35,24 +30,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'client'))) // For serving static files
-///app.use("*" , (req , res) => res.sendFile(path.join(__dirname, 'client', "./bulid")))
-
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-//   app.get("*", (req, res) => {
-//       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-//   });
-// }
-
-
-
-
-
-
-
-
-
 
 const { resolve } = require("path");
 // This is a sample test API key. Sign in to see examples pre-filled with your key.
@@ -89,4 +66,4 @@ app.listen(process.env.PORT, function() {
   console.log(`Server Stated on http://localhost:${process.env.PORT}`)
 })
 
-module.exports =app;
+module.exports = app ;
