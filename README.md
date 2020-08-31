@@ -20,11 +20,12 @@ Submit a pull request :D
 **Clone**
 Clone this repo to your local machine using https://github.com/LadyBugs4/BakeryShop4.git
 **Setup**
+**npm install
+**npm start
 
-> npm install
-> npm start
 > **To Run Test**
 > npm run test
+
 > **To Start Server**
 > npm start
 # Reflection
