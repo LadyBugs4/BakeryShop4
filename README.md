@@ -17,11 +17,11 @@ Push to the branch: git push origin my-new-feature
 Submit a pull request :D
 
 # Installation
-**Clone**
-Clone this repo to your local machine using https://github.com/LadyBugs4/BakeryShop4.git
+>Clone this repo to your local machine using https://github.com/LadyBugs4/BakeryShop4.git
+
 **Setup**
-**npm install
-**npm start
+-npm install
+-npm start
 
 > **To Run Test**
 > npm run test
