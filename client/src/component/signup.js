@@ -73,7 +73,7 @@ export default function SignUp() {
     };
 
     axios
-      .post("/api/register", user)
+      .post("http://localhost:7000/api/register", user)
       .then((result) => {
         console.log(result);
         if (result.status === 201) {

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server/server.js",
-    "start": "node server/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,26 +18,21 @@
   },
   "homepage": "https://github.com/Farahnajjar99/BakeryShop#readme",
   "dependencies": {
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.8.0",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "indicative": "^7.4.4",
-    "middleware": "^1.0.0",
-    "mongoose": "^5.9.28",
-    "morgan": "^1.10.0",
+    "mongoose": "^5.9.23",
     "parse-error": "^0.2.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "request": "^2.88.2",
+    "save": "^2.4.0",
     "session-file-store": "^1.4.0",
-    "stripe": "^8.84.0"
+    "stripe": "^8.90.0"
   },
-  "engines": {
-    "node": "12.16.2"
-  }
+  "devDependencies": {}
 }

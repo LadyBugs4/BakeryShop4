@@ -109,7 +109,7 @@ export default function Wtem() {
       const bodyParameters = {
         City,
       };
-      const result = await axios.post("/api/location", locations, config);
+      const result = await axios.post("http://localhost:7000/api/location", locations, config);
       if (result.status === 201) {
         setIsOpen(true);
         setValues(() => ({

@@ -1,6 +1,6 @@
 // const { validate } = require('indicative').validator
 const { User } = require('../models')
-const { token } = require('morgan')
+const { location } = require('../models')
 
 exports.register = async (req, res) => {
 
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
     await user.save() //save user record to database
 
     const token = user.getJWT()
-
+    //const expiration = process.env.NODE_ENV === 'dev' ? 100 : 604800000
 
     return res
       .status(201)
@@ -49,4 +49,5 @@ exports.login = async (req, res) => {
     if (err) return res.status(401).json({ message: err.message })
   }
 }
+
 
