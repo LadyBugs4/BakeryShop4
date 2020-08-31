@@ -1,21 +1,21 @@
 # BakeryShop
 
-#About our Project
+##About our Project
 GoodDay Bakeryshop
 An application used to serve Bakery products via credit card or cash based on user preference, built with React, context API, JavaScript, and material UI.
-#Team:
+##Team:
 1.The scrum master "Farah Alnajjar" https://github.com/Farahnajjar99
 2.Product Owner: Eithar Alatoom https://github.com/EitharAlotoom95
 3.Development Team Members: Orieb Alzyuot, Ethar Nawafleh https://github.com/oriebalzyuot96 && https://github.com/Ethar94
 
-#Contributing
+##Contributing
 Fork it!
 Create your feature branch: git checkout -b my-new-feature
 Commit your changes: git commit -am 'Add some feature'
 Push to the branch: git push origin my-new-feature
 Submit a pull request :D
 
-#Installation
+##Installation
 **Clone**
 Clone this repo to your local machine using https://github.com/LadyBugs4/BakeryShop4.git
 **Setup**
