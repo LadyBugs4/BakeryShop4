@@ -1,5 +1,6 @@
 const { Product } = require("../models");
 const  {Location }=require("../models");
+
 exports.add = async (req, res) => {
   try {
     //initialize mongoose Model
@@ -10,21 +11,31 @@ exports.add = async (req, res) => {
       description: req.body.description,
       image: req.body.image,
     });
+
     await product.save(); //save product record to database
+
     return res.status(201).json({ data: { product } });
   } catch (err) {
+    
     return res.status(409).json({ message: "error saving data" });
   }
 };
+
+
+
 exports.categories = async (req, res) => {
+ 
+
   try {
     const { category } = req.body;
     const products = await Product.find({ category });
+
     if (!products) {
       return res
         .status(404)
         .json({ msg: `No products were found for ${category}` });
     }
+
     return res.status(201).json({ data: { products } });
   } catch (err) {
     //console.log("Error", err);
@@ -44,7 +55,9 @@ exports.location = async (req, res) => {
     });
 // await loc.update();
     await loc.save(); //save product record to database
+    console.log("saved")
     return res.status(201).json({ data: { loc } });
+    console.log("savedoo")
   } 
   catch (err) {
    console.log(err)
