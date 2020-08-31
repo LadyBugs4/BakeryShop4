@@ -20,13 +20,13 @@ Submit a pull request :D
 >Clone this repo to your local machine using https://github.com/LadyBugs4/BakeryShop4.git
 
 **Setup**
--npm install
--npm start
+**1-npm install**
+**2-npm start**
 
-> **To Run Test**
+ **To Run Test**
 > npm run test
 
-> **To Start Server**
+ **To Start Server**
 > npm start
 # Reflection
 > This was a 4 week long project built during our thesis module at RBK Bootkamp of Software. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.Originally we wanted to build a website that allowed users to order bread and bakery's products in the Quarintine time.
